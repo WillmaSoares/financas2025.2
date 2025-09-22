@@ -1,7 +1,7 @@
 import { View } from "react-native-web";
 import { AuthRoutes } from '../routes/auth.routes'
 
-function Rotas(){
+function Routes(){
     const loading = false;
     const signed = false;
 
@@ -10,4 +10,4 @@ function Rotas(){
     )
 }
 
-export default Rotas
+export default Routes

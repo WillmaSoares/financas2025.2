@@ -1,43 +1,40 @@
 import { BackGround, Container, Logo, AreaInput, Input, SubmitButton,
-    SubmitText, Link, LinkText
- } from '.styles'
+  SubmitText, Link, LinkText
+} from './styles';
 
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
 import { Platform } from 'react-native';
 
 export default function SignIn(){
-    const navigation = useNavigation();
-    
-    return(
-        <BackGround>
-            <Container
-                behavior={Platform.OS === 'ios' ? 'padding' : ''}
-                enable
-            >
-                <Logo 
-                    source={require('')}
-                />
+  const navigation = useNavigation();
 
-                <AreaInput>
-                    <Input 
-                        placeholder="Email"
-                    />
-                </AreaInput>
+  return (
+    <BackGround>
+      <Container
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        enabled
+      >
+        <Logo
+          source={require('../../../assets/Logo.png')}
+          resizeMode="contain"
+        />
 
-                <AreaInput>
-                    <Input 
-                        placeholder="Senha"
-                    />
-                </AreaInput>
+        <AreaInput>
+          <Input placeholder="Email" />
+        </AreaInput>
 
-                <SubmitButton activeOpacity={0.8}>
-                    <SubmitText>Acessar</SubmitText>
-                </SubmitButton>
+        <AreaInput>
+          <Input placeholder="Senha" secureTextEntry />
+        </AreaInput>
 
-                <Link onPress={ () => navigation.navigate('SignUp')}>
-                    <LinkText>Criar sua conta!</LinkText>
-                </Link>
-            </Container>
-        </BackGround>
-    )
+        <SubmitButton activeOpacity={0.8}>
+          <SubmitText>Acessar</SubmitText>
+        </SubmitButton>
+
+        <Link onPress={() => navigation.navigate('SignUp')}>
+          <LinkText>Criar sua conta!</LinkText>
+        </Link>
+      </Container>
+    </BackGround>
+  );
 }
