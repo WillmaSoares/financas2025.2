@@ -6,26 +6,30 @@ import api from '../services/api'
 const AuthContext = createContext({});
 
 function AuthProvider ({children}){
-    const [user, setUser] = useState({
-        nome: "Rafael Sá"
-    })
+    const [user, setUser] = useState(null)
+    const [loadingAuth, setLoadingAuth] = useState(false);
+
     const navigation = useNavigation();
 
     async function signUp(email, password, nome){
+        setLoadingAuth(true);
         try {
-            const response = await api.post('/users', {
+            await api.post('/users', {
                 name: nome,
                 password: password,
                 email: email,
             })
+            
+            setLoadingAuth(false);
             navigation.goBack();
         } catch (err) {
             console.log("ERRO AO CADASTRAR", err);
+            setLoadingAuth(false);
         }
     }
 
     return (
-        <AuthContext.Provider value={{user, signUp}}>
+        <AuthContext.Provider value={{ signed: !!user,  user, signUp, loadingAuth}}>
             {children}
         </AuthContext.Provider>
     )

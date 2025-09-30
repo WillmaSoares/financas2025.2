@@ -1,12 +1,14 @@
-import { View } from "react-native-web";
 import { AuthRoutes } from '../routes/auth.routes'
+import { useContext } from "react";
+import { AuthContext } from '../context/auth'
+import AppRoutes from './app.routes';
 
 function Routes(){
+    const { signed } = useContext(AuthContext);
     const loading = false;
-    const signed = false;
 
     return(
-        signed ? <View></View> : <AuthRoutes/>
+        signed ? <AppRoutes/> : <AuthRoutes/>
     )
 }
 

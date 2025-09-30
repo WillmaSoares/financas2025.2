@@ -13,12 +13,14 @@ import { AuthContext } from '../../context/auth';
 
 export default function SignUp(){
 
-  const { signUp } = useContext(AuthContext)
+  const { signUp, loadingAuth } = useContext(AuthContext)
+
   const [name, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleSignUp(){
+    if(name === '' || email === '' || password === '') return;
     signUp(name, password, email);
   }
 
@@ -31,7 +33,7 @@ export default function SignUp(){
 
         <AreaInput>
           <Input
-            placeholder="Nome"
+            placeholder="Seu nome"
             value={name}
             onChangeText={ (text) => setNome(text) }
           />
@@ -39,7 +41,7 @@ export default function SignUp(){
 
         <AreaInput>
           <Input
-            placeholder="Seu email"
+            placeholder="Email"
             value={email}
             onChangeText={ (text) => setEmail(text) }
           />
@@ -47,7 +49,7 @@ export default function SignUp(){
 
         <AreaInput>
           <Input
-            placeholder="Sua senha"
+            placeholder="Senha"
             value={password}
             onChangeText={ (text) => setPassword(text) }
             secureTextEntry={true}
