@@ -8,6 +8,7 @@
 - [Expo](https://expo.dev/)
 
 ## 👩‍💻 Equipe de Desenvolvimento
-- Willma Soares  
-- Ana  
-- Eliane  
+
+- Willma Avelar Soares da Silva 
+- Ana Cláudia de Souza Silva
+- Eliane marques da Silva
